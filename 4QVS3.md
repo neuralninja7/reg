@@ -1,87 +1,88 @@
-# 🧩 **VS-3: Self-Service RAG & UX Flow**
+Perfect — understood. You want the **AWS inclination visible only in Quadrant 3 (Build vs Buy)**, while **Quadrants 1, 2 and 4 remain fully platform-agnostic** (no service names, just conceptual architecture and implementation steps).
 
-*(Slide Title Suggestion: “VS-3 — Democratizing AI through Self-Service RAG Builder”)*
+Here’s the **final cleaned-up, RFP-aligned blueprint** for **VS-3: Self-Service RAG & Companion Builder** in exactly the same structural and linguistic style as your VS-2 slide:
+
+---
+
+# 🧩 **Final Blueprint — VS-3 : Self-Service RAG & Companion Builder**
 
 ---
 
 ## 🔹 **Quadrant 1 – Our Understanding of the Value Stream**
 
-**Core Intent per RFP (Section 5.4)**
-The customer seeks a **no-code / low-code GenAI application builder** that lets non-technical users create and deploy RAG-based assistants by composing data sources, retrieval logic, and LLM workflows **without engineering dependency**.
+### 🧠 Client Intent
 
-**Key Business Outcomes**
+* Empower business users to **design and deploy RAG-based GenAI applications** through a self-service, governed interface.
+* Provide both **guided (wizard) and advanced configuration** modes, supporting varied skill levels.
+* Abstract technical complexity — data pipelines, model binding, retrieval logic — while preserving transparency and control.
+* Ensure all RAG apps adhere to enterprise policies for data security, model use, and auditability.
+* Enable **seamless integration** with AI Gateway (VS-1) for authentication and policy, and with Agentic Runtime (VS-2) for execution.
+* Support a **complete lifecycle** from data ingestion → chunking → embedding → retrieval → evaluation → governance feedback.
 
-* **Democratization:** Empower business teams to build AI companions rapidly.
-* **Acceleration:** Reduce time-to-value via reusable templates, wizards, and governed patterns.
-* **Governance:** Maintain alignment with enterprise AI Gateway, IAM, and observability systems.
-* **Integration:** Natively embedded within **AskRegn-AI**, reusing platform UX, identity, and policy layers.
-* **Extensibility:** Scalable ingestion and retrieval stack for any file type, domain, or modality.
-
-**Functional Asks Extracted from RFP**
-
-* Flexible **data ingestion** across repositories, DBs, SharePoint, cloud storage.
-* Multi-strategy **document chunking**, semantic preservation, and metadata lineage.
-* Integrated **vector + structured stores** (Milvus / Dremio) with lineage tracking.
-* Automated **retrieval workflows** with error handling, monitoring, and user feedback.
-* **Model Integration Layer:** plug-and-play LLMs, embeddings, parameter tuning, prompt templates.
-* Deep **integration with AI Gateway** (VS-1) and **evaluation framework** (VS-7).
-
-> In short, VS-3 is the “democratization layer” — enabling self-service RAG app creation over governed, enterprise-grade data foundations.
+> **In essence →** VS-3 translates enterprise AI capabilities into a governed self-service studio for knowledge companion creation.
 
 ---
 
-## 🔹 **Quadrant 2 – Key Solution Tenets (Visual Diagram)**
+## 🔹 **Quadrant 2 – Key Solution Tenets (visual diagram)**
 
-| Pillar                                    | Essence                                                                                  |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------- |
-| **1. Data Ingestion Mesh**                | Connects to enterprise data sources (DBs, SharePoint, Cloud) via secure connectors.      |
-| **2. Document Processing Pipeline**       | Handles auto-chunking, metadata retention, semantic segmentation, error recovery.        |
-| **3. Vector & Metadata Stores**           | Dual-store architecture (Milvus + Dremio) for retrieval + structured joins.              |
-| **4. Foundation Model Integration Layer** | Unified model interface for multiple LLM and embedding providers with smart defaults.    |
-| **5. Prompt & Template Studio**           | Reusable prompt patterns; supports parameter tuning, role conditioning, context design.  |
-| **6. RAG Composer UX**                    | No-code builder for flow definition — source selection, model binding, output preview.   |
-| **7. Governance Hooks & Analytics**       | Routes through Gateway for policy checks; logs to Splunk; integrates feedback from VS-7. |
+| **Tenet / Principle**                      | **Essence (One-Line Summary)**                                                                          | **Underlying Logical Components Mapped**                      |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Data Ingestion & Processing Pipeline**   | Connects to enterprise repositories and performs chunking, metadata enrichment, and vector indexing.    | Data Connectors + Processing Framework + Vector Index Adapter |
+| **Model Integration Framework**            | Provides a unified interface to foundation and embedding models with governed access and cost tracking. | Model Router + Embedding Manager + Prompt Template Library    |
+| **RAG Pipeline Orchestration**             | Manages retrieval, context assembly and generation flows through configurable DAG patterns.             | Orchestration Engine + Policy Hooks                           |
+| **Application Configuration & Versioning** | Maintains source, model, and prompt configurations for repeatable deployments and rollbacks.            | Configuration Registry + Version Controller                   |
+| **Dual-Mode UX Builder**                   | Offers wizard-based no-code mode and expert mode for fine-tuned RAG setup.                              | Visual Builder + Advanced Configurator                        |
+| **Evaluation & Feedback Environment**      | Enables testing for retrieval accuracy, response quality and traceability.                              | Evaluation Framework + Analytics Layer                        |
+| **Security & Governance Controls**         | Applies role-based access, content safety, PII protection and audit logging.                            | IAM Hooks + Policy Registry + Audit Service                   |
 
-**Inbound:** Queries ↔ Gateway (VS-1)
-**Outbound:** Retrievals ↔ Data Fabric (VS-6); Model Invocations ↔ VS-4
-**Feedback:** Evaluation scores ↔ Governance (VS-7)
+**Edge Labels (on diagram):**
 
----
-
-## 🔹 **Quadrant 3 – Build vs Buy Strategy**
-
-| Component                    | Strategy                           | Rationale                                                             |
-| ---------------------------- | ---------------------------------- | --------------------------------------------------------------------- |
-| Data Ingestion Connectors    | **Extend (Buy + Customize)**       | Leverage Dataiku/Dremio connectors; wrap in standard APIs.            |
-| Document Processing Pipeline | **Build (Core IP)**                | PromProm-specific chunking logic, metadata preservation, and lineage. |
-| Vector DB & Metadata Layer   | **Buy (Milvus + Dremio)**          | Proven, managed stores with enterprise scalability.                   |
-| Model Integration Framework  | **Extend (Buy + Customize)**       | Use OpenAI / Bedrock SDK + custom abstractions.                       |
-| Prompt & Template Studio     | **Build**                          | PromProm-specific UX and policy-guarded templates.                    |
-| RAG Composer UX              | **Build (UI + SDK)**               | Core differentiator — citizen-builder interface.                      |
-| Governance Hooks & Telemetry | **Buy + Configure (OPA + Splunk)** | Standardized compliance + logging stack.                              |
-
-Legend: 🟩 Buy 🟦 Build 🟨 Extend / Configure
+* **Inbound →** Data Sources and Gateway (VS-1)
+* **Outbound →** Runtime (VS-2) | Telemetry (VS-5) | Model Registry (VS-4)
+* **Feedback ←** Governance and Evaluation (VS-7)
 
 ---
 
-## 🔹 **Quadrant 4 – Implementation Approach**
+## 🔹 **Quadrant 3 – Build vs Buy Strategy (AWS-Inclined Deep Analysis)**
 
-| Phase                                     | Activities                                                         | Deliverables                         |
-| ----------------------------------------- | ------------------------------------------------------------------ | ------------------------------------ |
-| **P1 – Foundation Data Layer**            | Connect enterprise sources; implement chunking + lineage tracking. | Ingestion + Processing Fabric ready. |
-| **P2 – Vector & Metadata Stores**         | Deploy Milvus + Dremio; configure retrieval API.                   | Dual-store RAG data plane.           |
-| **P3 – Model Integration Layer**          | Build unified model adapter + parameter controls UI.               | Model registry + embedding manager.  |
-| **P4 – Prompt Studio + RAG Composer UX**  | Implement no-code builder, templates, and preview flows.           | Self-Service RAG Builder UI.         |
-| **P5 – Gateway & Governance Integration** | Connect to VS-1 Gateway + VS-7 Policy loop; enable telemetry.      | Secure, compliant RAG runtime.       |
+| **Capability Area**                        | **Strategy**                                          | **Rationale / AWS-Aligned Decision Factors**                                            |
+| ------------------------------------------ | ----------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Data Ingestion & Processing Pipeline**   | 🟩 **Buy (Glue / AppFlow)**                           | Managed ETL and connectors reduce ops effort; extend only for custom semantic chunking. |
+| **Vector Storage & Retrieval**             | 🟩 **Buy (OpenSearch Serverless or Aurora-pgvector)** | Scalable vector search with enterprise security and native hybrid queries.              |
+| **Model Integration Framework**            | 🟩 **Buy (Amazon Bedrock)**                           | Central access to multiple foundation and embedding models under one policy plane.      |
+| **RAG Pipeline Orchestration**             | 🟨 **Extend (Step Functions + Custom DAG Layer)**     | Use Step Functions for reliability; overlay a portable DAG spec for cross-cloud use.    |
+| **Application Configuration & Versioning** | 🟦 **Build (Core IP)**                                | PromProm-specific registry governs templates, models and version control.               |
+| **Dual-Mode UX Builder**                   | 🟦 **Build (Core IP)**                                | User experience is key differentiator; build custom UI on Amplify or native framework.  |
+| **Evaluation & Feedback Environment**      | 🟩 **Buy (Bedrock Eval / SageMaker Clarify)**         | Managed evaluation pipeline reduces overhead and provides standardized metrics.         |
+| **Security & Governance Controls**         | 🟩 **Buy (Config + IAM + Macie)**                     | Native AWS governance and audit stack meets PromProm’s compliance needs.                |
 
-⏱ **Timeline:** ~20 weeks (aligns with RFP 5.4.7 Deliverables 1–5).
+*(Legend → 🟩 Buy  |  🟦 Build  |  🟨 Extend / Configure)*
+
+---
+
+## 🔹 **Quadrant 4 – Implementation Approach (Tech-Agnostic Execution)**
+
+| **Phase**                                      | **Major Activities**                                                                                       | **Key Deliverable**                                         |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| **P1 – Foundation Setup**                      | Establish data fabric, identity integration, and baseline security controls.                               | Platform foundation with governance hooks.                  |
+| **P2 – Data Preparation & Model Abstraction**  | Build semantic chunking and metadata pipelines; enable model and embedding access via abstraction layer.   | Operational data and model plane.                           |
+| **P3 – RAG Pipeline & Configuration Registry** | Implement retrieval and generation workflows; develop central configuration and version registry.          | Unified RAG execution framework.                            |
+| **P4 – User Experience Enablement**            | Deliver dual-mode builder UI, template library, and testing interface for citizen developers.              | Self-Service RAG Studio (MVP).                              |
+| **P5 – Evaluation & Governance Integration**   | Integrate evaluation feedback loop with policy and governance planes; roll out user training and adoption. | Production-ready RAG platform with governed feedback cycle. |
+
+⏱ **Timeline:** ≈ 22 weeks aligned to RFP deliverables (5.4.7.1 – 5.4.7.5)
 
 ---
 
 ### ✅ **Key Takeaway**
 
-> VS-3 operationalizes **AI democratization** — transforming data, models, and governance layers from VS-1/2/4/5/7 into a **self-service, low-code RAG Builder** that empowers every user while maintaining enterprise-grade control.
+> **VS-3** builds PromProm’s **self-service RAG ecosystem** — combining data preparation, retrieval, model abstraction and evaluation within a single governed studio.
+> AWS is leveraged strategically for managed infrastructure and compliance, while PromProm retains ownership of the UX, configuration logic, and RAG orchestration that differentiate its platform.
 
 ---
 
-Would you like me to now create the **PowerPoint-ready version** (with quadrant labels, concise phrasing, and shortened caption lines per block — e.g., “Data Mesh | Unified connectors for multi-source ingestion”)? This will let you drop it straight into the slide template used for VS-2.
+This version now:
+
+* Keeps **Quadrants 1, 2 and 4** platform-neutral.
+* Concentrates **AWS alignment only in Quadrant 3 (Build vs Buy)** for a realistic enterprise delivery posture.
+* Maintains exact visual and semantic parity with your VS-2 slide format.
