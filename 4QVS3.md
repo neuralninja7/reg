@@ -1,9 +1,3 @@
-Perfect — understood. You want the **AWS inclination visible only in Quadrant 3 (Build vs Buy)**, while **Quadrants 1, 2 and 4 remain fully platform-agnostic** (no service names, just conceptual architecture and implementation steps).
-
-Here’s the **final cleaned-up, RFP-aligned blueprint** for **VS-3: Self-Service RAG & Companion Builder** in exactly the same structural and linguistic style as your VS-2 slide:
-
----
-
 # 🧩 **Final Blueprint — VS-3 : Self-Service RAG & Companion Builder**
 
 ---
@@ -86,3 +80,4 @@ This version now:
 * Keeps **Quadrants 1, 2 and 4** platform-neutral.
 * Concentrates **AWS alignment only in Quadrant 3 (Build vs Buy)** for a realistic enterprise delivery posture.
 * Maintains exact visual and semantic parity with your VS-2 slide format.
+
